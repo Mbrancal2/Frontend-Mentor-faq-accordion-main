@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | FAQ accordion</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    /*
+      1. Use a more-intuitive box-sizing model.
+    */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    /*
+      2. Remove default margin
+    */
+    * {
+      margin: 0;
+    }
+    /*
+      Typographic tweaks!
+      3. Add accessible line-height
+      4. Improve text rendering
+    */
+    body {
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    /*
+      5. Improve media defaults
+    */
+    img, picture, video, canvas, svg {
+      display: block;
+      max-width: 100%;
+    }
+    /*
+      6. Remove built-in form typography styles
+    */
+    input, button, textarea, select {
+      font: inherit;
+    }
+    /*
+      7. Avoid text overflows
+    */
+    p, h1, h2, h3, h4, h5, h6 {
+      overflow-wrap: break-word;
+    }
+    /*
+      8. Create a root stacking context
+    */
+    #root, #__next {
+      isolation: isolate;
+    }
+    :root{
+      --fs: 16px;
+      --fw-normal: 400;
+      --fw-bold: 600;
+      --fw-bolder: 700;
+      --color-White: hsl(0, 0%, 100%);
+      --color-Light-pink: hsl(275, 100%, 97%);
+      --color-Grayish-purple: hsl(292, 16%, 49%);
+      --color-Dark-purple: hsl(292, 42%, 14%);
+      --ff-work-sans: 'Work Sans';
+    }
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    body {
+      min-height: 100vh;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      line-height: 1.5;
+      justify-content: center;
+      font-family: var(--ff-work-sans);
+      background-color: var(--color-Light-pink);
+    }
+    .card{
+      display: flex;
+      flex-direction: column;
+      color: var(--color-Dark-purple);
+      border-radius: 1rem;
+      background-color: white;
+      margin: 1.5rem;
+      padding: 1.5rem;
+      gap: 1.2rem;
+      max-width: 625px;
+    }
+    .title{
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+    }
+    .title_header
+    {
+      font-weight: var(--fw-bolder);
+      font-size: 3.5rem;
+    }
+    .title_img{
+      width: 40px;
+      height: 41px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      color: var(--color-Dark-purple)
+    }
+    .question
+    {
+      margin-bottom: 0.5rem;
+    }
+    .question:not(:last-child)
+    {
+      border-bottom: solid var(--color-Light-pink);
+    }
+    .question_title
+    {
+      display: flex;
+      justify-content: space-between;
+      column-gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .question_title h3:hover
+    {
+      color: var(--color-Grayish-purple);
+    }
+    .anwser
+    {
+      margin-bottom: 1rem;
+      display: none;
+      color: var(--color-Grayish-purple)
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="title">
+      <img class="title_img" src="./assets/images/icon-star.svg">
+      <h1 class="title_header">FAQs</h1>
+    </div>
+    <div class="question">
+      <div class="question_title">
+        <h3>What is Frontend Mentor, and how will it help me?</h3>
+        <img id="anwser-1-img" class="question_title_img" src="./assets/images/icon-minus.svg" onclick="myFunction('anwser-1-p', 'anwser-1-img')">
+      </div>
+      <div id="anwser-1-p" class="anwser">
+        <p>
+          Frontend Mentor offers realistic coding challenges to help developers improve their 
+          frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for 
+          all levels and ideal for portfolio building.
+        </p>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question_title">
+        <h3>Is Frontend Mentor free?</h3>
+        <img id="anwser-2-img" class="question_title_img" src="./assets/images/icon-minus.svg" onclick="myFunction('anwser-2-p', 'anwser-2-img')">
+      </div>
+      <div id="anwser-2-p" class="anwser">
+        <p>
+          Yes, Frontend Mentor offers both free and premium coding challenges, with the free 
+          option providing access to a range of projects suitable for all skill levels.
+        </p>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question_title">
+        <h3>Can I use Frontend Mentor projects in my portfolio?</h3>
+        <img id="anwser-3-img" class="question_title_img" src="./assets/images/icon-minus.svg" onclick="myFunction('anwser-3-p', 'anwser-3-img' )">
+      </div>
+      <div id="anwser-3-p" class="anwser">
+        <p>
+          Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
+          way to showcase your skills to potential employers!
+        </p>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question_title">
+        <h3>How can I get help if I'm stuck on a Frontend Mentor challenge?</h3>
+        <img id="anwser-4-img" class="question_title_img" src="./assets/images/icon-minus.svg" onclick="myFunction('anwser-4-p', 'anwser-4-img')"> 
+      </div>
+      <div id="anwser-4-p" class="anwser">
+        <p>
+          The best place to get help is inside Frontend Mentor's Discord community. There's a help 
+          channel where you can ask questions and seek support from other community members.
+        </p>
+      </div>
+    </div>
+  </main>
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+</body>
+</html>
+<script>
+  function myFunction(name_p, name_img) {
+    var x = document.getElementById(name_p);
+    var y = document.getElementById(name_img);
+    if (x.style.display === "none") {
+      x.style.display = "block";
+      y.src = "./assets/images/icon-plus.svg";
+    } else {
+      x.style.display = "none";
+      y.src = "./assets/images/icon-minus.svg";
+    }
+  }
+</script>
